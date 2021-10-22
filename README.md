@@ -1,29 +1,37 @@
-# ElectricSpawners
-ElectricSpawners is a [Slimefun4](https://github.com/TheBusyBiscuit/Slimefun4/) Addon.<br>
-You need to install Slimefun4 in order for this plugin to work.
+# ElectricSpawners 电力刷怪笼
 
-ElectricSpawners is a Slimefun4 Addon that allows you turn Broken Spawners into Electric Spawners.
-Electric Spawners work similar to normal spawners but they run off of electricity and do not require any Players in immediate proximity.
+ElectricSpawners 是一个 Slimefun4 附属插件。
+你需要安装 Slimefun4 才能让此插件运行。
 
-[Read more...](https://github.com/TheBusyBiscuit/Slimefun4/wiki/ElectricSpawners)
+ElectricSpawners 让你可以将已修复的刷怪笼制作成电力刷怪笼。
+电力刷怪笼与普通刷怪笼功能类似，但其依赖电力工作，且不需要有玩家在附近。
 
-## Download ElectricSpawners
-You can download ElectricSpawners right here: [Development Builds](https://thebusybiscuit.github.io/builds/TheBusyBiscuit/ElectricSpawners/master/)
+[了解更多...](https://github.com/TheBusyBiscuit/Slimefun4/wiki/Addons)
+
+## 下载 ElectricSpawners
+
+你可以在这里下载ElectricSpawners: [下载ElectricSpawners](https://builds.guizhanss.net/ybw0014/ElectricSpawners-CN/master)
 
 <p align="center">
-  <a href="https://thebusybiscuit.github.io/builds/TheBusyBiscuit/ElectricSpawners/master/">
-    <img src="https://thebusybiscuit.github.io/builds/TheBusyBiscuit/ElectricSpawners/master/badge.svg" alt="Build Server"/>
+  <a href="https://github.com/ybw0014/ElectricSpawners-CN/actions/workflows/maven.yml">
+    <img src="https://github.com/ybw0014/ElectricSpawners-CN/actions/workflows/maven.yml/badge.svg" alt="Java CI"/>
+  </a>
+
+  <a href="https://builds.guizhanss.net/ybw0014/ElectricSpawners-CN/master">
+    <img src="https://builds.guizhanss.net/f/ybw0014/ElectricSpawners-CN/master/badge.svg" alt="Build status"/>
   </a>
 </p>
 
 ## Discord
-You can find Slimefun's community on Discord!
-Click the badge down below to join the server for suggestions/questions or other discussions about this plugin.
+
+你可以在Discord上找到Slimefun社区!
+点击下方的图片即可加入我们的服务器。你可以讨论本插件、提问题或给出宝贵的建议。
+
 <p align="center">
   <a href="https://discord.gg/fsD4Bkh">
     <img src="https://img.shields.io/discord/565557184348422174?color=7289DA&label=Discord&style=for-the-badge" alt="Discord Invite"/>
   </a>
 </p>
 
-## Open Source
-This Project is open-source and licensed under the [MIT License](https://github.com/TheBusyBiscuit/ElectricSpawners/blob/master/LICENSE)
+## 开源
+本项目以[GPL-3.0协议](/LICENSE)开源。
