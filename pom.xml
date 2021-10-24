@@ -70,6 +70,10 @@
                             <pattern>org.bstats</pattern>
                             <shadedPattern>io.github.thebusybiscuit.electricspawners.bstats</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>net.guizhanss.minecraft.chineselib</pattern>
+                            <shadedPattern>io.github.thebusybiscuit.electricspawners.chineselib</shadedPattern>
+                        </relocation>
                     </relocations>
 
                     <!-- Exclude unneeded metadata files from shaded dependencies -->
@@ -120,6 +124,13 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>2.2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.ybw0014</groupId>
+            <artifactId>ChineseLib</artifactId>
+            <version>0.2.0</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
