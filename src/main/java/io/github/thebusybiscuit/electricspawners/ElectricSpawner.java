@@ -8,7 +8,6 @@ import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
@@ -18,7 +17,6 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
-import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -35,20 +33,8 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
 
     private final EntityType entity;
 
-    public ElectricSpawner(ItemGroup category, EntityType type, ItemStack spawner, Research research) {
-        // @formatter:off
-        super(category, new SlimefunItemStack("ELECTRIC_SPAWNER_" + type.toString(), "db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd",
-            "&e电力刷怪笼 &7(" + EntityTypeHelper.getName(type) + ")",
-            "",
-            "&8\u21E8 &e\u26A1 &7最大实体数量: 6",
-            "&8\u21E8 &e\u26A1 &7512 J 可储存",
-            "&8\u21E8 &e\u26A1 &7240 J 每个生物"
-        ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
-            null, SlimefunItems.PLUTONIUM, null,
-            SlimefunItems.ELECTRIC_MOTOR, spawner, SlimefunItems.ELECTRIC_MOTOR,
-            SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.BLISTERING_INGOT_3
-        });
-        // @formatter:on
+    public ElectricSpawner(ItemGroup category, EntityType type, SlimefunItemStack spawner, ItemStack[] recipe, Research research) {
+        super(category, spawner, RecipeType.ENHANCED_CRAFTING_TABLE, recipe);
 
         this.entity = type;
 
