@@ -11,13 +11,15 @@ import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponen
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
+import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
-import net.guizhanss.minecraft.chineselib.minecraft.entity.EntityTypes;
+import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -34,18 +36,20 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
 
     private final EntityType entity;
 
-    public ElectricSpawner(ItemGroup category, EntityType type, ItemStack spawner, Research research) {
+    public ElectricSpawner(ItemGroup category, String mob, EntityType type, Research research) {
         // @formatter:off
-        super(category, new SlimefunItemStack("ELECTRIC_SPAWNER_" + type.toString(), "db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd",
-                "&e电力刷怪笼 &7(" + EntityTypes.fromEntityType(type) + ")",
-                "",
-                "&8\u21E8 &e\u26A1 &7最大实体数量: 6",
-                "&8\u21E8 &e\u26A1 &7512 J 可储存",
-                "&8\u21E8 &e\u26A1 &7240 J 每个生物"
+        super(category, new SlimefunItemStack(
+            "ELECTRIC_SPAWNER_" + mob,
+            "db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd",
+            "&e电力刷怪笼 &7(" + EntityTypeHelper.getName(type) + ")",
+            "",
+            "&8\u21E8 &e\u26A1 &7最大实体数量: 6",
+            "&8\u21E8 &e\u26A1 &7512 J 可储存",
+            "&8\u21E8 &e\u26A1 &7240 J 每个生物"
         ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
-                null, SlimefunItems.PLUTONIUM, null, 
-                SlimefunItems.ELECTRIC_MOTOR, spawner, SlimefunItems.ELECTRIC_MOTOR,
-                SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.BLISTERING_INGOT_3
+            null, SlimefunItems.PLUTONIUM, null,
+            SlimefunItems.ELECTRIC_MOTOR, new CustomItemStack(Material.SPAWNER, "&b已修复的刷怪笼", "&7类型: &b" + ChatUtils.humanize(type.toString())), SlimefunItems.ELECTRIC_MOTOR,
+            SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.BLISTERING_INGOT_3
         });
         // @formatter:on
 
@@ -59,7 +63,7 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             public void init() {
                 for (int i = 0; i < 9; i++) {
                     if (i != 4) {
-                        addItem(i, new CustomItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE, " "), (p, slot, item, action) -> false);
+                        addItem(i, ChestMenuUtils.getBackground(), (p, slot, item, action) -> false);
                     }
                 }
             }

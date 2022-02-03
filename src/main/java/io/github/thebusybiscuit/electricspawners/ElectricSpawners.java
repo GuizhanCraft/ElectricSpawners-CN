@@ -3,13 +3,11 @@ package io.github.thebusybiscuit.electricspawners;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.researches.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.RepairedSpawner;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.updater.GitHubBuildsUpdater;
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.EntityType;
@@ -27,8 +25,9 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
         // Setting up bStats
         new Metrics(this, 6163);
 
-        if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-            new GitHubBuildsUpdater(this, getFile(), "ybw0014/ElectricSpawners-CN/master").start();
+        if (cfg.getBoolean("options.auto-update") &&
+            getDescription().getVersion().startsWith("Build ")) {
+            new GuizhanBuildsUpdater(this, getFile(), "ybw0014", "ElectricSpawners-CN", "master", false).start();
         }
 
         ItemGroup itemGroup = new ItemGroup(new NamespacedKey(this, "electric_spawners"), new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromHashCode("db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd")), "&9电力刷怪笼"));
@@ -37,13 +36,11 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
         for (String mob : cfg.getStringList("mobs")) {
             try {
                 EntityType type = EntityType.valueOf(mob);
-                RepairedSpawner reinforcedSpawner = SlimefunItems.REPAIRED_SPAWNER.getItem(RepairedSpawner.class);
-
-                new ElectricSpawner(itemGroup, type, reinforcedSpawner.getItemForEntityType(type), research).register(this);
+                new ElectricSpawner(itemGroup, mob, type, research).register(this);
             } catch (IllegalArgumentException x) {
                 getLogger().log(Level.WARNING, "尝试注册电力刷怪笼时发生错误,该生物类型无效: \"{0}\"", mob);
             } catch (Exception x) {
-                getLogger().log(Level.SEVERE, x, () -> "尝试注册电力刷怪笼时发生未知错误,生物类型: \"" + mob + "\"");
+                getLogger().log(Level.SEVERE, x, () -> "尝试注册电力刷怪笼时发生预期之外的错误,生物类型: \"" + mob + "\"");
             }
         }
 
