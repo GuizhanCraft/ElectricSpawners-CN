@@ -1,5 +1,5 @@
 options:
-  auto-update: false
+  auto-update: true
 mobs:
 - BLAZE
 - CAVE_SPIDER

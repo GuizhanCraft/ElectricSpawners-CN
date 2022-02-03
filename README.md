@@ -6,7 +6,7 @@ ElectricSpawners 是一个 Slimefun4 附属插件。
 ElectricSpawners 让你可以将已修复的刷怪笼制作成电力刷怪笼。
 电力刷怪笼与普通刷怪笼功能类似，但其依赖电力工作，且不需要有玩家在附近。
 
-[了解更多...](https://github.com/TheBusyBiscuit/Slimefun4/wiki/Addons)
+[了解更多...](https://slimefun.guizhanss.wiki/Addons)
 
 ## 下载 ElectricSpawners
 
