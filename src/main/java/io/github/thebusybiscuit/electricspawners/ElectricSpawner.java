@@ -38,15 +38,7 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
 
     public ElectricSpawner(ItemGroup category, String mob, EntityType type, Research research) {
         // @formatter:off
-        super(category, new SlimefunItemStack(
-            "ELECTRIC_SPAWNER_" + mob,
-            "db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd",
-            "&e电力刷怪笼 &7(" + EntityTypeHelper.getName(type) + ")",
-            "",
-            "&8\u21E8 &e\u26A1 &7最大实体数量: 6",
-            "&8\u21E8 &e\u26A1 &7512 J 可储存",
-            "&8\u21E8 &e\u26A1 &7240 J 每个生物"
-        ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        super(category, Items.getSpawner(type), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
             null, SlimefunItems.PLUTONIUM, null,
             SlimefunItems.ELECTRIC_MOTOR, new CustomItemStack(Material.SPAWNER, "&b已修复的刷怪笼", "&7类型: &b" + ChatUtils.humanize(type.toString())), SlimefunItems.ELECTRIC_MOTOR,
             SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.LARGE_CAPACITOR, SlimefunItems.BLISTERING_INGOT_3
