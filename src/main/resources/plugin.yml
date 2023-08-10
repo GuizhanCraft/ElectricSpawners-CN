@@ -2,6 +2,7 @@ name: ElectricSpawners
 version: ${project.version}
 author: TheBusyBiscuit
 depend: [Slimefun]
+softdepend: [GuizhanLibPlugin]
 
 api-version: 1.13
 
