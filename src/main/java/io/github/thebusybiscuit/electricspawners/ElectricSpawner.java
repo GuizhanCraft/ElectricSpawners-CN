@@ -136,7 +136,7 @@ public class ElectricSpawner extends SimpleSlimefunItem<BlockTicker> implements 
             if (n.getType().equals(this.entity)) {
                 count++;
 
-                if (count > 6) {
+                if (count >= 6) {
                     return;
                 }
             }
